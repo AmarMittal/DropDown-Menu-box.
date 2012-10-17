@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+        <title>DropDownBox</title>
+        <meta charset = "UTF-8" />
+        <link rel="stylesheet" href="./css/style.css" />  
+        <script src="./js/jQueryLibrary 1.8.2.js"></script>
+        <script src="./js/jquery-1.5.js" type="text/javascript"></script>
+    	<script src="./js/jquery-ui.js" type="text/javascript"></script>
+    	<script src="./js/jquery.multiselect.js" type="text/javascript"></script>
+    	<link href="./css/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("select").multiselect({
+                    close: function() {
+                        debugger;
+                        var values = new Array();
+                        $(this).multiselect("getChecked").each(function(index, item) {
+                            values.push($(item).val());
+                        });
+                        $("input[id*=selectedValues]").val(values.join(","));
+                    }
+                });
+            });
+    	</script>
+    </head>
+    <body>
+ 	  <form>
+ 		 <div class="main">
+ 			<div class="contain">
+ 				<div class="containBody">
+ 					<div class="textBox">
+ 					  <input type="text" class="text" value="*Your Email Address"/>
+ 				   </div>
+ 				   <div class="select">
+                        <select size="5" name="example-basic" multiple="multiple" title="Basic example">
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                            <option value="4">Option 4</option>
+                            <option value="5">Option 5</option>
+                            <option value="6">Option 6</option>  
+                        </select>
+                    </div>
+                     	<div class="addButton">
+                            <a href="#"><input  type="button" class="bluebtn" value="Submit"></a>
+                        </div>
+                </div>
+ 			</div>
+ 		 </div>
+ 	  </form>
+    </body>
+ </html>
